@@ -1,0 +1,12 @@
+{
+    "base": "./dist",
+    "conn_usestrictssl" : false,
+    "conn_server": "https://vhgbafidci.rot.hec.globalvia.com:44300/",
+    "conn_client" : "200",
+    "conn_user": "CB_JMIRGUE",
+    "conn_password": "Madrid_22",
+    "abap_package": "Z_TESTS",
+    "abap_bsp": "ZTEST_VSCODE",
+    "abap_bsp_text": "UI5 upload through VSCode App",
+    "abap_transport":"FIDK901537"
+}

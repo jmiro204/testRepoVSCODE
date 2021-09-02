@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Z_DDLS_STD_WF_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="C_CompanyCodeValueHelpType" sap:label="Company Code Value Help" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CompanyCode"/>
+                </Key>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName" sap:label="Company Code"/>
+                <Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/>
+            </EntityType>
+            <EntityType Name="C_CurrencyValueHelpType" sap:label="Currency Value help" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Language"/>
+                    <PropertyRef Name="Currency"/>
+                </Key>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="CurrencyName" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="CurrencyName" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="CurrencyShortName" Type="Edm.String" MaxLength="15" sap:label="Short text"/>
+            </EntityType>
+            <EntityType Name="C_PurchasingGroupValueHelpType" sap:label="Purchasing Group Value Help" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PurchasingGroup"/>
+                </Key>
+                <Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="PurchasingGroupName" sap:label="Purchasing Group"/>
+                <Property Name="PurchasingGroupName" Type="Edm.String" MaxLength="18" sap:label="Purchasing Grp. Name" sap:quickinfo="Purchasing Group Name"/>
+                <Property Name="PurchasingGroupPhoneNumber" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Tel. No. of Purchasing Grp." sap:quickinfo="Telephone number of purchasing group (buyer group)"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Tel. No. with Dialing Code" sap:quickinfo="Telephone no.: dialling code+number"/>
+                <Property Name="PhoneNumberExtension" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Extension" sap:quickinfo="Telephone no.: Extension"/>
+                <Property Name="FaxNumber" Type="Edm.String" MaxLength="31" sap:label="Fax" sap:quickinfo="Fax number of purchasing (buyer) group"/>
+                <Property Name="EmailAddress" Type="Edm.String" MaxLength="241" sap:label="Email Address" sap:quickinfo="E-Mail Address" sap:semantics="email"/>
+            </EntityType>
+            <EntityType Name="Z_CDC_RESPONSABLE_VALUEHELPType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Responsable"/>
+                </Key>
+                <Property Name="Responsable" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="NombreResponsable" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+                <Property Name="NombreResponsable" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account"/>
+            </EntityType>
+            <EntityType Name="Z_CDC_SOLICITANTE_VALUEHELPType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Solicitante"/>
+                </Key>
+                <Property Name="Solicitante" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="NombreSolicitante" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+                <Property Name="NombreSolicitante" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account"/>
+            </EntityType>
+            <EntityType Name="Z_CDS_STATUS_APROB_VHType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="idStatus"/>
+                </Key>
+                <Property Name="idStatus" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="descIdStatus" sap:label="Icon in text fields (substitute display, alias)" sap:heading=""/>
+                <Property Name="descIdStatus" Type="Edm.String" MaxLength="30" sap:label="Description of an icon" sap:heading=""/>
+            </EntityType>
+            <EntityType Name="Z_CDS_STATUS_WI_VHType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="statusWI"/>
+                    <PropertyRef Name="langu"/>
+                </Key>
+                <Property Name="statusWI" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="desc_statusWI" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="langu" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Lang." sap:quickinfo="Language Key"/>
+                <Property Name="desc_statusWI" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <EntityType Name="Z_DDLS_STD_WFType" sap:semantics="aggregate" sap:label="Workflow Status Report" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Doc_Ini" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Initial doc." sap:quickinfo="Purchasing Document Number"/>
+                <Property Name="ebeln" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchase Document" sap:quickinfo="Purchasing Document Number"/>
+                <Property Name="top_wf_id" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="ID. Approval process" sap:quickinfo="Workflow: Unique ID of Top-Level Instance (6.1/get)"/>
+                <Property Name="TABIX" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Table Row" sap:quickinfo="ABAP System Field: Row Index of Internal Tables"/>
+                <Property Name="COUNTER" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Counter" sap:quickinfo="ABAP System Field: Row Index of Internal Tables"/>
+                <Property Name="contador" Type="Edm.String" MaxLength="256" sap:aggregation-role="dimension" sap:label="Counter"/>
+                <Property Name="type_doc" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Doc. Type" sap:quickinfo=""/>
+                <Property Name="wf_status" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Process Status ID" sap:quickinfo="Processing Status of a Work Item" sap:value-list="standard"/>
+                <Property Name="wf_status_txt" Type="Edm.String" MaxLength="60" sap:aggregation-role="dimension" sap:label="Desc. Process Status" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="bukrs" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="txt_bukrs" sap:label="Company Code" sap:value-list="standard"/>
+                <Property Name="txt_bukrs" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/>
+                <Property Name="ekgrp" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="eknam" sap:label="Purchasing Group" sap:value-list="standard"/>
+                <Property Name="eknam" Type="Edm.String" MaxLength="18" sap:label="Purch.Group Description" sap:quickinfo="Description of purchasing group"/>
+                <Property Name="EKORG" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purch. organization" sap:quickinfo="Purchasing organization"/>
+                <Property Name="SOLICITANTE_PDH" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:text="SOLICITANTE_TXT" sap:label="Requisitioner" sap:quickinfo="Requester" sap:value-list="standard"/>
+                <Property Name="SOLICITANTE_TXT" Type="Edm.String" MaxLength="80" sap:label="Requisitioner name" sap:quickinfo="Full Name of Person"/>
+                <Property Name="RLWRT" Type="Edm.Decimal" Precision="22" Scale="3" sap:aggregation-role="measure" sap:unit="waers" sap:label="Counter" sap:quickinfo="Target Amount" sap:filterable="false"/>
+                <Property Name="waers" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:label="Currency" sap:quickinfo="Currency Key" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="wf_start_dat" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:filter-restriction="interval" sap:label="Process creation date" sap:quickinfo="Creation Date of Work Item"/>
+                <Property Name="wf_start_tim" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:filter-restriction="interval" sap:label="Creation process time" sap:quickinfo="Creation Time of Work Item"/>
+                <Property Name="wi_status" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Step status" sap:quickinfo="Processing Status of a Work Item" sap:value-list="standard"/>
+                <Property Name="wi_status_txt" Type="Edm.String" MaxLength="60" sap:aggregation-role="dimension" sap:label="Step status description" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="NODE_ID" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:text="TXT_RUSE_LABEL" sap:label="Position" sap:quickinfo="Node Number"/>
+                <Property Name="RUSE_LABEL" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Workflow : Label"/>
+                <Property Name="TXT_RUSE_LABEL" Type="Edm.String" MaxLength="255" sap:label="Workflow : Label name" sap:quickinfo="Text, 255 Characters"/>
+                <Property Name="NODE_DESCR" Type="Edm.String" MaxLength="120" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Description"/>
+                <Property Name="user_eo" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="user_eo_txt" sap:label="Responsible for Approval" sap:quickinfo="Agent ID in Organizational Management" sap:value-list="standard"/>
+                <Property Name="user_eo_txt" Type="Edm.String" MaxLength="80" sap:label="Responsible for Approval Name" sap:quickinfo="Full Name of Person"/>
+                <Property Name="FLAG_APLICA" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Switch"/>
+                <Property Name="wi_crea_dat" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:filter-restriction="interval" sap:label="Step creation date" sap:quickinfo="Creation Date of Work Item"/>
+                <Property Name="wi_crea_tim" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:filter-restriction="interval" sap:label="Step creation time" sap:quickinfo="Creation Time of Work Item"/>
+                <Property Name="WI_AAGENT" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="WI_AAGENT_txt" sap:label="Authorizing User" sap:quickinfo="Actual Agent of Work Item" sap:value-list="standard"/>
+                <Property Name="WI_AAGENT_txt" Type="Edm.String" MaxLength="80" sap:label="Authorizing User Name" sap:quickinfo="Full Name of Person"/>
+                <Property Name="WI_AED" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:filter-restriction="interval" sap:label="Step Processing Date" sap:quickinfo="End Date of Work Item"/>
+                <Property Name="WI_AEt" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:filter-restriction="interval" sap:label="Step Processing Time" sap:quickinfo="Current end time of work item"/>
+                <Property Name="icon_desc" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Approval status" sap:quickinfo="Icon in text fields (substitute display, alias)" sap:value-list="standard"/>
+                <Property Name="icon_text" Type="Edm.String" MaxLength="30" sap:aggregation-role="dimension" sap:label="Approval status description" sap:quickinfo="Description of an icon"/>
+                <Property Name="DESCR" Type="Edm.String" MaxLength="80" sap:aggregation-role="dimension" sap:label="Comment" sap:quickinfo="Description"/>
+                <Property Name="ACT_DESCR" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Character Field with Length 10" sap:heading=""/>
+                <Property Name="ACT_FECHA" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Updated On" sap:quickinfo="Date of Last Update"/>
+                <Property Name="ACT_HORA" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:filter-restriction="interval" sap:label="Update Time" sap:quickinfo="Time of Last Update"/>
+            </EntityType>
+            <EntityContainer Name="Z_DDLS_STD_WF_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="C_CompanyCodeValueHelp" EntityType="Z_DDLS_STD_WF_CDS.C_CompanyCodeValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_CurrencyValueHelp" EntityType="Z_DDLS_STD_WF_CDS.C_CurrencyValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_PurchasingGroupValueHelp" EntityType="Z_DDLS_STD_WF_CDS.C_PurchasingGroupValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Z_CDC_RESPONSABLE_VALUEHELP" EntityType="Z_DDLS_STD_WF_CDS.Z_CDC_RESPONSABLE_VALUEHELPType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Z_CDC_SOLICITANTE_VALUEHELP" EntityType="Z_DDLS_STD_WF_CDS.Z_CDC_SOLICITANTE_VALUEHELPType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Z_CDS_STATUS_APROB_VH" EntityType="Z_DDLS_STD_WF_CDS.Z_CDS_STATUS_APROB_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Z_CDS_STATUS_WI_VH" EntityType="Z_DDLS_STD_WF_CDS.Z_CDS_STATUS_WI_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Z_DDLS_STD_WF" EntityType="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/wf_status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Estatus tratamiento work item VH"/>
+                        <PropertyValue Property="CollectionPath" String="Z_CDS_STATUS_WI_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="wf_status"/>
+                                    <PropertyValue Property="ValueListProperty" String="statusWI"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="desc_statusWI"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="langu"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/bukrs" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Company Code Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="C_CompanyCodeValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="bukrs"/>
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCodeName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/ekgrp" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Purchasing Group Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="C_PurchasingGroupValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ekgrp"/>
+                                    <PropertyValue Property="ValueListProperty" String="PurchasingGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="EmailAddress"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FaxNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PhoneNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PhoneNumberExtension"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PurchasingGroupName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PurchasingGroupPhoneNumber"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/SOLICITANTE_PDH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Ayuda de busqueda solicitante"/>
+                        <PropertyValue Property="CollectionPath" String="Z_CDC_SOLICITANTE_VALUEHELP"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SOLICITANTE_PDH"/>
+                                    <PropertyValue Property="ValueListProperty" String="Solicitante"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NombreSolicitante"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Currency Value help"/>
+                        <PropertyValue Property="CollectionPath" String="C_CurrencyValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="waers"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyName"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyShortName"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Language"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/wi_status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Estatus tratamiento work item VH"/>
+                        <PropertyValue Property="CollectionPath" String="Z_CDS_STATUS_WI_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="wi_status"/>
+                                    <PropertyValue Property="ValueListProperty" String="statusWI"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="desc_statusWI"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="langu"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/user_eo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Responsable autorizador ayuda de busq"/>
+                        <PropertyValue Property="CollectionPath" String="Z_CDC_RESPONSABLE_VALUEHELP"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="user_eo"/>
+                                    <PropertyValue Property="ValueListProperty" String="Responsable"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NombreResponsable"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/WI_AAGENT" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Responsable autorizador ayuda de busq"/>
+                        <PropertyValue Property="CollectionPath" String="Z_CDC_RESPONSABLE_VALUEHELP"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WI_AAGENT"/>
+                                    <PropertyValue Property="ValueListProperty" String="Responsable"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NombreResponsable"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WFType/icon_desc" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Estatus de aprobación VH"/>
+                        <PropertyValue Property="CollectionPath" String="Z_CDS_STATUS_APROB_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="icon_desc"/>
+                                    <PropertyValue Property="ValueListProperty" String="idStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="descIdStatus"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WF_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_DDLS_STD_WF_CDS_Entities/Z_DDLS_STD_WF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                                <PropertyPath>RLWRT</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="wf_start_dat"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="wf_start_tim"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="wi_crea_dat"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="wi_crea_tim"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="WI_AED"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="WI_AEt"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ACT_HORA"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.C_CompanyCodeValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>CompanyCode</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.C_PurchasingGroupValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>PurchasingGroup</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_CDC_RESPONSABLE_VALUEHELPType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Responsable</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_CDC_SOLICITANTE_VALUEHELPType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Solicitante</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_CDS_STATUS_APROB_VHType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>idStatus</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Z_DDLS_STD_WF_CDS.Z_CDS_STATUS_WI_VHType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>statusWI</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/sap/Z_DDLS_STD_WF_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vhgbafidci.rot.hec.globalvia.com:44300/sap/opu/odata/sap/Z_DDLS_STD_WF_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
